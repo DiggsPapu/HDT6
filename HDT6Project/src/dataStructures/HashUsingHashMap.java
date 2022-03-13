@@ -7,6 +7,9 @@ public class HashUsingHashMap<T> extends Map<T> implements IHashTable<T>  {
 	public HashMap<String, ArrayList<String>> getDataStructure() {
 		return dataStructure;
 	}
+	public HashUsingHashMap() {
+		dataStructure = new HashMap<String, ArrayList<String>>();
+	}
 	@Override
 	public void Insert(T key, T value) {
 		// TODO Auto-generated method stub
@@ -40,6 +43,14 @@ public class HashUsingHashMap<T> extends Map<T> implements IHashTable<T>  {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+	public static void main(String[] args) {
+		HashUsingHashMap<String> EjemploHash =  new HashUsingHashMap<String>();
+		EjemploHash.Insert("Carro", "Lambo");
+		EjemploHash.Insert("Carro", "Toyota");
+		EjemploHash.Insert("Comida", "Insectos");
+		for (int k = 0; k<EjemploHash.getDataStructure().get("Carro").size(); k++) {
+			System.out.print(EjemploHash.getDataStructure().get("Carro").get(k)+"\n");
+		}
+	}
 	
 }
