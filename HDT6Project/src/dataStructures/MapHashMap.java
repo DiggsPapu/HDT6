@@ -1,7 +1,7 @@
 package dataStructures;
 import java.util.HashMap;
 import java.util.ArrayList;
-public class HashUsingHashMap<T> implements IMap<T>  {
+public class MapHashMap<T> implements IMap<T>  {
 	//The HashMap is private, has string 4 the keys and arrayList<String> 2 storage values
 	private HashMap<String, ArrayList<String>> dataStructure;
 	
@@ -16,7 +16,7 @@ public class HashUsingHashMap<T> implements IMap<T>  {
 	 * Constructor, creating the dataStructure as a HashMap, does not return anything
 	 * @return none
 	 */
-	public HashUsingHashMap() {
+	public MapHashMap() {
 		// the dataStructure as a HashMap
 		dataStructure = new HashMap<String, ArrayList<String>>();
 	}
@@ -91,7 +91,7 @@ public class HashUsingHashMap<T> implements IMap<T>  {
 		
 	}
 	public static void main(String[] args) {
-		HashUsingHashMap<String> EjemploHash =  new HashUsingHashMap<String>();
+		MapHashMap<String> EjemploHash =  new MapHashMap<String>();
 		EjemploHash.Insert("Carro", "Lambo");
 		EjemploHash.Insert("Carro", "Toyota");
 		EjemploHash.Insert("Comida", "Insectos");
