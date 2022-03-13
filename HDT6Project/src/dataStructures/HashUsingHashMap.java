@@ -12,9 +12,19 @@ public class HashUsingHashMap<T> implements IMap<T>  {
 	public HashMap<String, ArrayList<String>> getDataStructure() {
 		return dataStructure;
 	}
+	/**
+	 * Constructor, creating the dataStructure as a HashMap, does not return anything
+	 * @return none
+	 */
 	public HashUsingHashMap() {
+		// the dataStructure as a HashMap
 		dataStructure = new HashMap<String, ArrayList<String>>();
 	}
+	
+	/**
+	 * It inserts the value inside the hashMap in the arrayList inside the hashmap
+	 * @return void
+	 */
 	@Override
 	public void Insert(T key, T value) {
 		// TODO Auto-generated method stub
@@ -37,7 +47,9 @@ public class HashUsingHashMap<T> implements IMap<T>  {
 		
 	}
 	/**
-	 * 
+	 * It returns a string with the value inside the arrayList.
+	 * @param key,value
+	 * @return String
 	 */
 	@Override
 	public String Search(T key, String value) {
@@ -55,6 +67,12 @@ public class HashUsingHashMap<T> implements IMap<T>  {
 		return null;
 		
 	}
+	/**
+	 * Removes the value from the array inside the hash map
+	 * Asks 4 a key and the value 2 be removed
+	 * @param key, value
+	 * @return String
+	 */
 	@Override
 	public String Removin(T key, String value) {
 		// TODO Auto-generated method stub
