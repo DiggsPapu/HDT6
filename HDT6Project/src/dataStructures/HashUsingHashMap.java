@@ -1,9 +1,14 @@
 package dataStructures;
 import java.util.HashMap;
 import java.util.ArrayList;
-public class HashUsingHashMap<T> extends Map<T> implements IHashTable<T>  {
+public class HashUsingHashMap<T> implements IMap<T>  {
+	//The HashMap is private, has string 4 the keys and arrayList<String> 2 storage values
 	private HashMap<String, ArrayList<String>> dataStructure;
 	
+	/**
+	 * It gets the dataStructure (HashMap) in the implementation
+	 * @return dataStructure
+	 */
 	public HashMap<String, ArrayList<String>> getDataStructure() {
 		return dataStructure;
 	}
@@ -31,7 +36,9 @@ public class HashUsingHashMap<T> extends Map<T> implements IHashTable<T>  {
 		}
 		
 	}
-
+	/**
+	 * 
+	 */
 	@Override
 	public String Search(T key, String value) {
 		// TODO Auto-generated method stub
