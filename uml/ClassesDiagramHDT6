@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-03-14T04:59:04.394Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36 OPR/84.0.4316.31" etag="czg_PfmpjT9z5x5NYMeJ" version="17.1.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-03-14T05:12:17.566Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36 OPR/84.0.4316.31" etag="3L5HIY4AGaps1gCG4-Kw" version="17.1.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1775" dy="395" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1154" dy="392" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -80,16 +80,16 @@
           <mxGeometry x="-255" y="390" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="OlGbZ9lBamwI7ROXdTZM-4" value="Cart" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="990" y="586" width="220" height="180" as="geometry" />
+          <mxGeometry x="990" y="586" width="350" height="180" as="geometry" />
         </mxCell>
         <mxCell id="OlGbZ9lBamwI7ROXdTZM-5" value="- cart: Map" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="OlGbZ9lBamwI7ROXdTZM-4">
-          <mxGeometry y="26" width="220" height="26" as="geometry" />
+          <mxGeometry y="26" width="350" height="26" as="geometry" />
         </mxCell>
         <mxCell id="OlGbZ9lBamwI7ROXdTZM-6" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="OlGbZ9lBamwI7ROXdTZM-4">
-          <mxGeometry y="52" width="220" height="8" as="geometry" />
+          <mxGeometry y="52" width="350" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="OlGbZ9lBamwI7ROXdTZM-7" value="+ Cart(DataStructureType:String): void&#xa;+ addToCart(key:K, value:T): void&#xa;+ removeFromCart(key:K, product: T): void&#xa;+ getCategory(product:K): key:K&#xa;+ getProductStats(product:K) String&#xa;+ getProductList(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="OlGbZ9lBamwI7ROXdTZM-4">
-          <mxGeometry y="60" width="220" height="120" as="geometry" />
+        <mxCell id="OlGbZ9lBamwI7ROXdTZM-7" value="+ Cart(DataStructureType:int): void&#xa;+ addToCart(key:String, value:String): void&#xa;+ removeFromCart(key:String, product: String): product:String&#xa;+ getCategory(product:K): void&#xa;+ getProductStats(product:K) void&#xa;+ getProductList(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="OlGbZ9lBamwI7ROXdTZM-4">
+          <mxGeometry y="60" width="350" height="120" as="geometry" />
         </mxCell>
         <mxCell id="OlGbZ9lBamwI7ROXdTZM-8" value="MapFactory" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="690" y="500" width="230" height="86" as="geometry" />
