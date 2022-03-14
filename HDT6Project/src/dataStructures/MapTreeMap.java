@@ -41,7 +41,7 @@ public class MapTreeMap<T> implements IMap<T> {
 	}
 
 	@Override
-	public String Search(T key, String value) {
+	public String SearchValue(T key, String value) {
 		// TODO Auto-generated method stub
 		// a for to move between the array objects
 		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
@@ -67,12 +67,19 @@ public class MapTreeMap<T> implements IMap<T> {
 			if (getDataStructure().get(key).get(k)==value) {
 				System.out.print(getDataStructure().get(key).get(k)+" was removed\n") ;
 				return getDataStructure().get(key).remove(k);
+				
 			}
 		}
 		//If the value is not found we return null and print that it could not be removed
 		System.out.print(value+" could not be removed\n");
 		return null;
 		
+	}
+
+	@Override
+	public String SearchKey(T key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

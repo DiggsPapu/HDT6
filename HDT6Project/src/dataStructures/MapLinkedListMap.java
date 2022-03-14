@@ -39,7 +39,7 @@ public class MapLinkedListMap<T> implements IMap<T> {
 	}
 
 	@Override
-	public String Search(T key, String value) {
+	public String SearchValue(T key, String value) {
 		// TODO Auto-generated method stub
 		// a for to move between the array objects
 		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
@@ -71,5 +71,11 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		System.out.print(value+" could not be removed\n");
 		return null;
 		
+	}
+
+	@Override
+	public String SearchKey(T key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

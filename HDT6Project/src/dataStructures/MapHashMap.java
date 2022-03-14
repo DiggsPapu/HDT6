@@ -1,5 +1,6 @@
 package dataStructures;
 import java.util.HashMap;
+import java.sql.Array;
 import java.util.ArrayList;
 public class MapHashMap<T> implements IMap<T>  {
 	//The HashMap is private, has string 4 the keys and arrayList<String> 2 storage values
@@ -52,7 +53,7 @@ public class MapHashMap<T> implements IMap<T>  {
 	 * @return String
 	 */
 	@Override
-	public String Search(T key, String value) {
+	public String SearchValue(T key, String value) {
 		// TODO Auto-generated method stub
 		// a for to move between the array objects
 		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
@@ -90,6 +91,19 @@ public class MapHashMap<T> implements IMap<T>  {
 		return null;
 		
 	}
+	
+	@Override
+	public String SearchKey(T key) {
+		// TODO Auto-generated method stub
+		Object[] keySet = getDataStructure().keySet().toArray();
+		for (int k = 0; k < keySet.length; k++) {
+			if ((String) keySet[k] == (String) key) {
+				return (String) keySet[k];
+			}
+		}
+		return null;
+	}
+	
 	public static void main(String[] args) {
 		MapHashMap<String> EjemploHash =  new MapHashMap<String>();
 		EjemploHash.Insert("Carro", "Lambo");
@@ -99,11 +113,11 @@ public class MapHashMap<T> implements IMap<T>  {
 			System.out.print(EjemploHash.getDataStructure().get("Carro").get(k)+"\n");
 		}
 		
-		EjemploHash.Search("Carro", "Lalaland");
+		EjemploHash.SearchValue("Carro", "Lalaland");
 		for (int l = 0; l<EjemploHash.getDataStructure().get("Carro").size(); l++) {
 			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(l)+"\n");
 		}
-		EjemploHash.Search("Carro", "Toyota");
+		EjemploHash.SearchValue("Carro", "Toyota");
 		for (int n = 0; n<EjemploHash.getDataStructure().get("Carro").size(); n++) {
 			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(n)+"\n");
 		}
@@ -117,5 +131,6 @@ public class MapHashMap<T> implements IMap<T>  {
 			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(j)+"\n");
 		}
 	}
+	
 	
 }

@@ -78,8 +78,8 @@ class TestTreeMap {
 		EjemploHash.Insert("Carro", "Toyota");
 		EjemploHash.Insert("Comida", "Insectos");
 		
-		assertEquals(null, EjemploHash.Search("Carro", "Lalaland"));
-		assertEquals(EjemploHash.getDataStructure().get("Carro").get(1), EjemploHash.Search("Carro", "Toyota"));
+		assertEquals(null, EjemploHash.SearchValue("Carro", "Lalaland"));
+		assertEquals(EjemploHash.getDataStructure().get("Carro").get(1), EjemploHash.SearchValue("Carro", "Toyota"));
 		
 		
 	}
@@ -94,7 +94,7 @@ class TestTreeMap {
 		EjemploHash.Removin("Carro", "Lalaland");
 		
 		EjemploHash.Removin("Carro", "Toyota");
-		assertEquals(EjemploHash.Search("Carro", "Toyota"), null);
+		assertEquals(EjemploHash.SearchValue("Carro", "Toyota"), null);
 		
 	}
 }

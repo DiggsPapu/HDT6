@@ -2,6 +2,8 @@ package dataStructures;
 
 public interface IMap<T> {
 	public void Insert(T key, T value);
-	public String Search(T key, String value);
+	public String SearchValue(T key, String value);
+	public String SearchKey(T key);
 	public String Removin(T key, String value);
+	
 }
