@@ -1,9 +1,10 @@
 package dataStructures;
 
+import java.util.ArrayList;
+
 public interface IMap<T> {
 	public void Insert(T key, T value);
-	public String SearchValue(T key, String value);
-	public String SearchKey(T key);
-	public String Removin(T key, String value);
+	public ArrayList<T> Search(T key);
+	public ArrayList<T> Remove(T key, String value);
 	
 }

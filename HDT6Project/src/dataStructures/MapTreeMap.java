@@ -76,10 +76,27 @@ public class MapTreeMap<T> implements IMap<T> {
 		
 	}
 
-	@Override
+	/**
+	 * Used to search the key
+	 * @param key value that want to find
+	 * @return the key value as string
+	 */
 	public String SearchKey(T key) {
 		// TODO Auto-generated method stub
+		//The key set is saved as an array
+		Object[] keySet = getDataStructure().keySet().toArray();
+		//Searched in the array with the set of keys
+		for (int k = 0; k < keySet.length; k++) {
+			//If the key is the one we are lookin 4 we return it and show a message that it was found
+			if ((String) keySet[k] == (String) key) {
+				System.out.print(key+" key was found\n");
+				return (String) keySet[k];
+			}
+		}
+		//If it gets out from the 4, then the value was not found so we return null and show a message that was not found
+		System.out.print(key+" key was not found\n");
 		return null;
 	}
+	
 
 }

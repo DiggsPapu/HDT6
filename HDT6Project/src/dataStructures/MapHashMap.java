@@ -1,6 +1,5 @@
 package dataStructures;
 import java.util.HashMap;
-import java.sql.Array;
 import java.util.ArrayList;
 public class MapHashMap<T> implements IMap<T>  {
 	//The HashMap is private, has string 4 the keys and arrayList<String> 2 storage values
@@ -19,11 +18,98 @@ public class MapHashMap<T> implements IMap<T>  {
 	 */
 	public MapHashMap() {
 		// the dataStructure as a HashMap
-		dataStructure = new HashMap<String, ArrayList<String>>();
+		this.dataStructure = new HashMap<String, ArrayList<String>>();
+	}
+	/**
+	 * Gets the product and then it searches it to get the product Key
+	 * @param product
+	 * @return the key from the product
+	 */
+	public String getKeyFromValue(T value) {
+		//The key set is saved as an array
+		Object[] keySet = getDataStructure().keySet().toArray();
+		//Searched in the array with the set of keys
+		for (int k = 0; k < keySet.length; k++) {
+			//If the key is the one we are lookin 4 we return it and show a message that it was found
+			for (int l = 0; l < getDataStructure().get(keySet[k]).size(); l++) {
+				if (getDataStructure().get(keySet[k]).get(l)==value) {
+					System.out.print("The key for "+value+" is "+keySet[k]+"\n");
+					return (String) keySet[k];
+				}
+			}
+		}
+		System.out.print(value+" value was not found");
+		return null;
+	}
+	/**
+	 * It returns a string with the value inside the arrayList.
+	 * @param key,value
+	 * @return String
+	 */
+	public String SearchValue(T key, String value) {
+		// TODO Auto-generated method stub
+		// a for to move between the array objects
+		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
+			//If we found the value in the array we return the value and print found
+			if (getDataStructure().get(key).get(k)==value) {
+				System.out.print("Found value "+getDataStructure().get(key).get(k)+"\n") ;
+				return getDataStructure().get(key).get(k);
+			}
+		}
+		//If the value is not found we return null and print that was not found
+		System.out.print(value+" value was not found\n");
+		return null;
+		
+	}
+	/**
+	 * Removes the value from the array inside the hash map
+	 * Asks 4 a key and the value 2 be removed
+	 * @param key, value
+	 * @return String
+	 */
+	public String RemovinValue(T key, String value) {
+		// TODO Auto-generated method stub
+		//A for to move between the array objects
+		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
+			//If we found the value in the array we remove the value, return the value
+			//and print that it was removed
+			if (getDataStructure().get(key).get(k)==value) {
+				System.out.print(getDataStructure().get(key).get(k)+" value was removed\n") ;
+				return getDataStructure().get(key).remove(k);
+			}
+		}
+		//If the value is not found we return null and print that it could not be removed
+		System.out.print(value+" value could not be removed\n");
+		return null;
+		
 	}
 	
 	/**
-	 * It inserts the value inside the hashMap in the arrayList inside the hashmap
+	 * Used to search the key
+	 * @param key value that want to find
+	 * @return the key value as string
+	 */
+	
+	public String SearchKey(T key) {
+		// TODO Auto-generated method stub
+		//The key set is saved as an array
+		Object[] keySet = getDataStructure().keySet().toArray();
+		//Searched in the array with the set of keys
+		for (int k = 0; k < keySet.length; k++) {
+			//If the key is the one we are lookin 4 we return it and show a message that it was found
+			if ((String) keySet[k] == (String) key) {
+				System.out.print(key+" key was found\n");
+				return (String) keySet[k];
+			}
+		}
+		//If it gets out from the 4, then the value was not found so we return null and show a message that was not found
+		System.out.print(key+" key was not found\n");
+		return null;
+	}
+	
+	
+	/**
+	 * It inserts the value inside the hashMap in the arrayList inside the HashMap
 	 * @return void
 	 */
 	@Override
@@ -35,73 +121,32 @@ public class MapHashMap<T> implements IMap<T>  {
 		if (getDataStructure().containsKey(key)) {
 			//We append the value at the end
 			getDataStructure().get(key).add((String)value);
+			System.out.print(value + " value was inserted in " + key + "\n");
 		//If the key doesn't exist
 		}else {
 			//We create a new array
 			ArrayList<String> array = new ArrayList<String>();
 			//We storage it in the key
 			getDataStructure().put((String)key,array);
+			System.out.print(key+ " key was created\n");
 			//We append the value at the end
 			getDataStructure().get(key).add((String)value);
-			
+			System.out.print(value + " value was inserted in "+ key + "\n");
 		}
 		
 	}
-	/**
-	 * It returns a string with the value inside the arrayList.
-	 * @param key,value
-	 * @return String
-	 */
+
+	@SuppressWarnings("unchecked")
 	@Override
-	public String SearchValue(T key, String value) {
+	public ArrayList<T> Search(T key) {
 		// TODO Auto-generated method stub
-		// a for to move between the array objects
-		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
-			//If we found the value in the array we return the value and print found
-			if (getDataStructure().get(key).get(k)==value) {
-				System.out.print("Found "+getDataStructure().get(key).get(k)+"\n") ;
-				return getDataStructure().get(key).get(k);
-			}
-		}
-		//If the value is not found we return null and print that was not found
-		System.out.print(value+" was not found\n");
-		return null;
-		
+		return (ArrayList<T>) getDataStructure().get(key);
 	}
-	/**
-	 * Removes the value from the array inside the hash map
-	 * Asks 4 a key and the value 2 be removed
-	 * @param key, value
-	 * @return String
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public String Removin(T key, String value) {
+	public ArrayList<T> Remove(T key, String value) {
 		// TODO Auto-generated method stub
-		//A for to move between the array objects
-		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
-			//If we found the value in the array we remove the value, return the value
-			//and print that it was removed
-			if (getDataStructure().get(key).get(k)==value) {
-				System.out.print(getDataStructure().get(key).get(k)+" was removed\n") ;
-				return getDataStructure().get(key).remove(k);
-			}
-		}
-		//If the value is not found we return null and print that it could not be removed
-		System.out.print(value+" could not be removed\n");
-		return null;
-		
-	}
-	
-	@Override
-	public String SearchKey(T key) {
-		// TODO Auto-generated method stub
-		Object[] keySet = getDataStructure().keySet().toArray();
-		for (int k = 0; k < keySet.length; k++) {
-			if ((String) keySet[k] == (String) key) {
-				return (String) keySet[k];
-			}
-		}
-		return null;
+		return (ArrayList<T>) getDataStructure().get(key);
 	}
 	
 	public static void main(String[] args) {
@@ -122,15 +167,21 @@ public class MapHashMap<T> implements IMap<T>  {
 			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(n)+"\n");
 		}
 		
-		EjemploHash.Removin("Carro", "Lalaland");
+		EjemploHash.RemovinValue("Carro", "Lalaland");
 		for (int j = 0; j<EjemploHash.getDataStructure().get("Carro").size(); j++) {
 			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(j)+"\n");
 		}
-		EjemploHash.Removin("Carro", "Toyota");
+		EjemploHash.RemovinValue("Carro", "Toyota");
 		for (int j = 0; j<EjemploHash.getDataStructure().get("Carro").size(); j++) {
 			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(j)+"\n");
 		}
+		EjemploHash.SearchKey("Carro");
+		EjemploHash.SearchKey("Raulito");
+		EjemploHash.getKeyFromValue("Lambo");
+		EjemploHash.Insert("Carro", "Ferrari");
+		EjemploHash.Insert("Carro", "Mitsubishi");
+		EjemploHash.getKeyFromValue("Ferrari");
+		System.out.println(	EjemploHash.getDataStructure());
+		EjemploHash.Remove(null, null)
 	}
-	
-	
 }

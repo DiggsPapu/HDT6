@@ -24,10 +24,10 @@ public class Cart {
 	}
 	public String removeFromCart(String key, String product) {
 		System.out.print(product+ "was removed from the cart");
-		return getCart().Removin(key, product);
+		return getCart().Remove(key, product);
 	}
 	public void getCategory(String product) {
-		System.out.print("");
+		
 	
 	}
 	public void getProductStats(String product) {
