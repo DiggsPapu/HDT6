@@ -87,7 +87,11 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		return null;
 		
 	}
-	
+	/**
+	 * This method search the key if exists, and if so it returns the key in a string format
+	 * @param key, the key that want to be founded
+	 * @return String, string with the key that wanted to be found
+	 */
 	@Override
 	public String SearchKey(T key) {
 		// TODO Auto-generated method stub
@@ -99,7 +103,11 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		}
 		return null;
 	}
-	
+	/**
+	 * It is to print the entry with its value, in a key value pair
+	 * @param nothing
+	 * @return nothing it is void
+	 */
 	@Override
 	public void ShowMapping() {
 		// TODO Auto-generated method stub
@@ -110,6 +118,11 @@ public class MapLinkedListMap<T> implements IMap<T> {
 			}
 		}
 	}
+	/**
+	 * This method searches the key based on a value given
+	 * @param value, the value used to find the key
+	 * @return String, the string of the key where the value is at
+	 */
 	@Override
 	public String getKeyFromValue(T value) {
 		// TODO Auto-generated method stub
