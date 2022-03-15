@@ -1,6 +1,5 @@
 package dataStructures;
 import java.util.HashMap;
-import java.sql.Array;
 import java.util.ArrayList;
 public class MapHashMap<T> implements IMap<T>  {
 	//The HashMap is private, has string 4 the keys and arrayList<String> 2 storage values
@@ -104,15 +103,39 @@ public class MapHashMap<T> implements IMap<T>  {
 		return null;
 	}
 	
+	@Override
+	public void ShowMapping() {
+		// TODO Auto-generated method stub
+		Object[] keySet = getDataStructure().keySet().toArray();
+		for (int k = 0; k < keySet.length; k++) {
+			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
+				System.out.print("Category: "+keySet[k]+" Value: " + getDataStructure().get(keySet[k]).get(l)+"\n");
+			}
+		}
+	}
+	@Override
+	public String getKeyFromValue(T value) {
+		// TODO Auto-generated method stub
+		Object[] keySet = getDataStructure().keySet().toArray();
+		for (int k = 0; k < keySet.length; k++) {
+			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
+				if (getDataStructure().get(keySet[k]).get(l)==value) {
+					System.out.print("The category of " + value + " is "+ keySet[k]+"\n");
+					return (String) keySet[k];
+					
+				}
+			}
+		}
+		return null;
+	}
 	public static void main(String[] args) {
 		MapHashMap<String> EjemploHash =  new MapHashMap<String>();
 		EjemploHash.Insert("Carro", "Lambo");
 		EjemploHash.Insert("Carro", "Toyota");
 		EjemploHash.Insert("Comida", "Insectos");
-		for (int k = 0; k<EjemploHash.getDataStructure().get("Carro").size(); k++) {
-			System.out.print(EjemploHash.getDataStructure().get("Carro").get(k)+"\n");
-		}
-		
+
+		EjemploHash.ShowMapping();
+		EjemploHash.getKeyFromValue("Insectos");
 		EjemploHash.SearchValue("Carro", "Lalaland");
 		for (int l = 0; l<EjemploHash.getDataStructure().get("Carro").size(); l++) {
 			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(l)+"\n");
@@ -131,6 +154,5 @@ public class MapHashMap<T> implements IMap<T>  {
 			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(j)+"\n");
 		}
 	}
-	
 	
 }

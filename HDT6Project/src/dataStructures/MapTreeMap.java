@@ -20,15 +20,20 @@ public class MapTreeMap<T> implements IMap<T> {
 	}
 
 
+	/**
+	 * It inserts the value inside the hashMap in the arrayList inside the hashmap
+	 * @return void
+	 */
 	@Override
 	public void Insert(T key, T value) {
 		// TODO Auto-generated method stub
+		
 		//We will work it on arrayLists inside the keys.
-				//If the key exists
+		//If the key exists
 		if (getDataStructure().containsKey(key)) {
 			//We append the value at the end
 			getDataStructure().get(key).add((String)value);
-			//If the key doesn't exist
+		//If the key doesn't exist
 		}else {
 			//We create a new array
 			ArrayList<String> array = new ArrayList<String>();
@@ -36,10 +41,15 @@ public class MapTreeMap<T> implements IMap<T> {
 			getDataStructure().put((String)key,array);
 			//We append the value at the end
 			getDataStructure().get(key).add((String)value);
-					
+			
 		}
+		
 	}
-
+	/**
+	 * It returns a string with the value inside the arrayList.
+	 * @param key,value
+	 * @return String
+	 */
 	@Override
 	public String SearchValue(T key, String value) {
 		// TODO Auto-generated method stub
@@ -56,7 +66,12 @@ public class MapTreeMap<T> implements IMap<T> {
 		return null;
 		
 	}
-
+	/**
+	 * Removes the value from the array inside the hash map
+	 * Asks 4 a key and the value 2 be removed
+	 * @param key, value
+	 * @return String
+	 */
 	@Override
 	public String Removin(T key, String value) {
 		// TODO Auto-generated method stub
@@ -67,7 +82,6 @@ public class MapTreeMap<T> implements IMap<T> {
 			if (getDataStructure().get(key).get(k)==value) {
 				System.out.print(getDataStructure().get(key).get(k)+" was removed\n") ;
 				return getDataStructure().get(key).remove(k);
-				
 			}
 		}
 		//If the value is not found we return null and print that it could not be removed
@@ -75,11 +89,42 @@ public class MapTreeMap<T> implements IMap<T> {
 		return null;
 		
 	}
-
+	
 	@Override
 	public String SearchKey(T key) {
 		// TODO Auto-generated method stub
+		Object[] keySet = getDataStructure().keySet().toArray();
+		for (int k = 0; k < keySet.length; k++) {
+			if ((String) keySet[k] == (String) key) {
+				return (String) keySet[k];
+			}
+		}
 		return null;
 	}
-
+	
+	@Override
+	public void ShowMapping() {
+		// TODO Auto-generated method stub
+		Object[] keySet = getDataStructure().keySet().toArray();
+		for (int k = 0; k < keySet.length; k++) {
+			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
+				System.out.print("Category: "+keySet[k]+" Value: " + getDataStructure().get(keySet[k]).get(l)+"\n");
+			}
+		}
+	}
+	@Override
+	public String getKeyFromValue(T value) {
+		// TODO Auto-generated method stub
+		Object[] keySet = getDataStructure().keySet().toArray();
+		for (int k = 0; k < keySet.length; k++) {
+			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
+				if (getDataStructure().get(keySet[k]).get(l)==value) {
+					System.out.print("The category of " + value + " is "+ keySet[k]+"\n");
+					return (String) keySet[k];
+					
+				}
+			}
+		}
+		return null;
+	}
 }
