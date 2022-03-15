@@ -41,20 +41,7 @@ class TestTreeMap {
 		
 		return EjemploHash;
 	}
-	@Test
-	void testGetDataStructure() {
-		MapTreeMap<String> ex1 = preparationMethod();
-		for (int k = 0; k < ex1.getDataStructure().get("Barcelona").size(); k++) {
-			assertEquals(ex1.getDataStructure().get("Barcelona").get(k), "AlBarcelonaLeMetenEnChampions"+Integer.toString(k));
-		}
-	}
-
-	@Test
-	void testMapHashMap() {
-		MapTreeMap<String> ex1 = preparationMethod();
-		assertNotNull(ex1);
-	}
-
+	
 	@Test
 	void testInsert() {
 		MapTreeMap<String> ex1 = preparationMethod();
@@ -67,12 +54,10 @@ class TestTreeMap {
 		ex1.getDataStructure().put("Donald", null);
 		assertEquals(ex1.getDataStructure().get("Donald"),null);
 		
-		
-		
 	}
 
 	@Test
-	void testSearch() {
+	void testSearchValue() {
 		MapTreeMap<String> EjemploHash =  new MapTreeMap<String>();
 		EjemploHash.Insert("Carro", "Lambo");
 		EjemploHash.Insert("Carro", "Toyota");
@@ -95,6 +80,29 @@ class TestTreeMap {
 		
 		EjemploHash.Removin("Carro", "Toyota");
 		assertEquals(EjemploHash.SearchValue("Carro", "Toyota"), null);
+	}
+	
+	@Test
+	void testSearchKey() {
+		MapTreeMap<String> ExHash = preparationMethod();
+		assertEquals(ExHash.SearchKey("Carro"), null);
+		assertEquals(ExHash.SearchKey("Numbers"), "Numbers");
+	}
+
+	@Test
+	void testShowMapping() {
+		MapTreeMap<String> ExHash = preparationMethod();
+		ExHash.ShowMapping();
+	}
+
+	@Test
+	void testGetKeyFromValue() {
+		MapTreeMap<String> EjemploHash =  new MapTreeMap<String>();
+		EjemploHash.Insert("Carro", "Lambo");
+		EjemploHash.Insert("Carro", "Toyota");
+		EjemploHash.Insert("Comida", "Insectos");
 		
+		assertEquals(EjemploHash.getKeyFromValue("Lalalnd"), null);
+		assertEquals(EjemploHash.getKeyFromValue("Toyota"), "Carro");
 	}
 }
