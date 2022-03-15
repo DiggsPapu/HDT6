@@ -5,9 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
+
 import dataStructures.MapHashMap;
 
-class HashMapImplementation {
+class TestHashMap {
 	MapHashMap<String> preparationMethod() {
 		//Instance a hashMap
 		MapHashMap<String> EjemploHash =  new MapHashMap<String>();
@@ -39,20 +40,7 @@ class HashMapImplementation {
 		
 		return EjemploHash;
 	}
-	@Test
-	void testGetDataStructure() {
-		MapHashMap<String> ex1 = preparationMethod();
-		for (int k = 0; k < ex1.getDataStructure().get("Barcelona").size(); k++) {
-			assertEquals(ex1.getDataStructure().get("Barcelona").get(k), "AlBarcelonaLeMetenEnChampions"+Integer.toString(k));
-		}
-	}
-
-	@Test
-	void testMapHashMap() {
-		MapHashMap<String> ex1 = preparationMethod();
-		assertNotNull(ex1);
-	}
-
+	
 	@Test
 	void testInsert() {
 		MapHashMap<String> ex1 = preparationMethod();
@@ -64,8 +52,6 @@ class HashMapImplementation {
 		}
 		ex1.getDataStructure().put("Donald", null);
 		assertEquals(ex1.getDataStructure().get("Donald"),null);
-		
-		
 		
 	}
 
@@ -93,9 +79,30 @@ class HashMapImplementation {
 		
 		EjemploHash.Removin("Carro", "Toyota");
 		assertEquals(EjemploHash.SearchValue("Carro", "Toyota"), null);
-		
+	}
+	
+	@Test
+	void testSearchKey() {
+		MapHashMap<String> ExHash = preparationMethod();
+		assertEquals(ExHash.SearchKey("Carro"), null);
+		assertEquals(ExHash.SearchKey("Numbers"), "Numbers");
 	}
 
-	
+	@Test
+	void testShowMapping() {
+		MapHashMap<String> ExHash = preparationMethod();
+		ExHash.ShowMapping();
+	}
+
+	@Test
+	void testGetKeyFromValue() {
+		MapHashMap<String> EjemploHash =  new MapHashMap<String>();
+		EjemploHash.Insert("Carro", "Lambo");
+		EjemploHash.Insert("Carro", "Toyota");
+		EjemploHash.Insert("Comida", "Insectos");
+		
+		assertEquals(EjemploHash.getKeyFromValue("Lalalnd"), null);
+		assertEquals(EjemploHash.getKeyFromValue("Toyota"), "Carro");
+	}
 
 }
