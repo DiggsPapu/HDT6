@@ -7,5 +7,7 @@ public interface IMap<T> {
 	public String Removin(T key, String value);
 	public void ShowMapping();
 	public String getKeyFromValue(T value);
+	public String SearchValue(String value);
+	public int countValues(T value);
 	
 }

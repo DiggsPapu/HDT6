@@ -140,4 +140,43 @@ public class MapTreeMap<T> implements IMap<T> {
 		}
 		return null;
 	}
+	
+	/**
+	 * It searches across all the arrays inside the hash to find the value
+	 * @param value, to be found
+	 * @return String, with the value
+	 */
+	@Override
+	public String SearchValue(String value) {
+		
+		Object[] keySet = getDataStructure().keySet().toArray();
+		for (int k = 0; k < keySet.length; k++) {
+			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
+				if (getDataStructure().get(keySet[k]).get(l)==value) {
+					return getDataStructure().get(keySet[k]).get(l);
+				}
+				
+			}
+		}
+		return null;
+	}
+	/**
+	 * This method will get the number of items for a specific value
+	 * @param value
+	 * @return Integer, returns the amount of items for an specific value
+	 */
+	@Override
+	public int countValues(T value) {
+		Object[] keySet = getDataStructure().keySet().toArray();
+		int counter = 0;
+		for (int k = 0; k < keySet.length; k++) {
+			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
+				if (getDataStructure().get(keySet[k]).get(l)==value) {
+					counter++;
+				}
+				
+			}
+		}
+		return counter;
+	}
 }
