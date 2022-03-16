@@ -1,6 +1,7 @@
 package dataStructures;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 
 public class MapLinkedListMap<T> implements IMap<T> {
@@ -128,14 +129,24 @@ public class MapLinkedListMap<T> implements IMap<T> {
 	 * @return nothing it is void
 	 */
 	@Override
-	public void ShowMapping() {
-		// TODO Auto-generated method stub
+	public void ShowMapping(){
+		//Creates the set of keys
 		Object[] keySet = getDataStructure().keySet().toArray();
+		//To run in the set
 		for (int k = 0; k < keySet.length; k++) {
+			///Creates a temp Array to compare already printed objects
+			ArrayList<String> tempArray = new ArrayList<String>();
 			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
-				System.out.print("Category: "+keySet[k]+" Value: " + getDataStructure().get(keySet[k]).get(l)+"\n");
+				//In case the object have not been printed we print it
+				if (!tempArray.contains(getDataStructure().get(keySet[k]).get(l))){
+					System.out.print("Category: " + keySet[k] + "|| Product: " + getDataStructure().get(keySet[k]).get(l) + " || Number: " + Collections.frequency(getDataStructure().get(keySet[k]),getDataStructure().get(keySet[k]).get(l)) + "\n");
+				}
+				//We add the object
+				tempArray.add(getDataStructure().get(keySet[k]).get(l));
+				
 			}
 		}
+		//Garbage collector throws out the temp array
 	}
 	/**
 	 * This method searches the key based on a value given
@@ -157,6 +168,9 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		}
 		return null;
 	}
+	
+	
+	
 	/**
 	 * This method will get the number of items for a specific value
 	 * @param value

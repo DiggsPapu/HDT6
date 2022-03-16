@@ -1,6 +1,7 @@
 package dataStructures;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.TreeMap;
 
 public class MapTreeMap<T> implements IMap<T> {
@@ -90,6 +91,25 @@ public class MapTreeMap<T> implements IMap<T> {
 		
 	}
 	/**
+	 * It searches across all the arrays inside the hash to find the value
+	 * @param value, to be found
+	 * @return String, with the value
+	 */
+	@Override
+	public String SearchValue(String value) {
+		
+		Object[] keySet = getDataStructure().keySet().toArray();
+		for (int k = 0; k < keySet.length; k++) {
+			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
+				if (getDataStructure().get(keySet[k]).get(l)==value) {
+					return getDataStructure().get(keySet[k]).get(l);
+				}
+				
+			}
+		}
+		return null;
+	}
+	/**
 	 * This method search the key if exists, and if so it returns the key in a string format
 	 * @param key, the key that want to be founded
 	 * @return String, string with the key that wanted to be found
@@ -111,14 +131,24 @@ public class MapTreeMap<T> implements IMap<T> {
 	 * @return nothing it is void
 	 */
 	@Override
-	public void ShowMapping() {
-		// TODO Auto-generated method stub
+	public void ShowMapping(){
+		//Creates the set of keys
 		Object[] keySet = getDataStructure().keySet().toArray();
+		//To run in the set
 		for (int k = 0; k < keySet.length; k++) {
+			///Creates a temp Array to compare already printed objects
+			ArrayList<String> tempArray = new ArrayList<String>();
 			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
-				System.out.print("Category: "+keySet[k]+" Value: " + getDataStructure().get(keySet[k]).get(l)+"\n");
+				//In case the object have not been printed we print it
+				if (!tempArray.contains(getDataStructure().get(keySet[k]).get(l))){
+					System.out.print("Category: " + keySet[k] + "|| Product: " + getDataStructure().get(keySet[k]).get(l) + " || Number: " + Collections.frequency(getDataStructure().get(keySet[k]),getDataStructure().get(keySet[k]).get(l)) + "\n");
+				}
+				//We add the object
+				tempArray.add(getDataStructure().get(keySet[k]).get(l));
+				
 			}
 		}
+		//Garbage collector throws out the temp array
 	}
 	/**
 	 * This method searches the key based on a value given
@@ -141,25 +171,8 @@ public class MapTreeMap<T> implements IMap<T> {
 		return null;
 	}
 	
-	/**
-	 * It searches across all the arrays inside the hash to find the value
-	 * @param value, to be found
-	 * @return String, with the value
-	 */
-	@Override
-	public String SearchValue(String value) {
-		
-		Object[] keySet = getDataStructure().keySet().toArray();
-		for (int k = 0; k < keySet.length; k++) {
-			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
-				if (getDataStructure().get(keySet[k]).get(l)==value) {
-					return getDataStructure().get(keySet[k]).get(l);
-				}
-				
-			}
-		}
-		return null;
-	}
+	
+	
 	/**
 	 * This method will get the number of items for a specific value
 	 * @param value

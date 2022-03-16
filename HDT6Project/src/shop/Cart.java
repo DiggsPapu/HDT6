@@ -73,6 +73,7 @@ public class Cart {
 		return null;
 		
 	}
+	
 	/**
 	 * Prints the list of products in the cart
 	 * @param Nothing it does not require arguments
@@ -81,6 +82,7 @@ public class Cart {
 	public void getProductList() {
 		getCart().ShowMapping();
 	}
+	
 	public static void main(String[] args) {
 		Cart cart = new Cart(1);
 
