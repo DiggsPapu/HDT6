@@ -1,12 +1,8 @@
 package shop;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import java.math.*;
 
 public class Main {
 
@@ -15,28 +11,26 @@ public class Main {
 			
 			
 			BufferedReader read= new BufferedReader(new FileReader("C:\\Users\\Windows 10\\Documents\\UVG\\CODING\\Algoritmos y estructuras de datos\\HDT\\HDT6\\src\\ListadoProducto.txt"));
+			System.out.print(2.1+"\n");
+			String line;
 			
-			String contenido = read.readLine();
-			String[] tempArray= contenido.split("|");
-			read.close();
-
-			
-			for (int k = 0; k < tempArray.length ; k++) {
-				boolean result = false;
-				
-				if ( result = (k%2) == 0) {
-					//Adds the product
-					shop.addNewProduct(tempArray[k-1].trim(), tempArray[k].trim());
-				}
+			while( (line = read.readLine() ) != null) {
+			    System.out.printf(line+"\n");
+			    
+			    String [] temp = line.split("\\|");
+			    System.out.println(temp[0].trim()+" "+temp[1].trim()+"\n");
+			    shop.addNewProduct(temp[0].trim(),temp[1].trim());
+			    
 			}
 
+		    shop.getProductList();
+			
 			return shop;
 			}
 		
 		
 		catch (Exception e) {
 			System.out.print("El archivo no es posible de ordenar dado que no solo posee numeros\n");
-			String[] tempArray= null;
 
 			return shop;
 		}
@@ -51,32 +45,38 @@ public class Main {
 		String dataStructureType = scanner.nextLine();
 		try {
 			int NumStructure = Integer.parseInt(dataStructureType);
+			System.out.print(1);
 			Shop shop = new Shop(NumStructure);
-			while (true) {
-				System.out.print("Seleccione entre las siguientes opciones:\n1. Agregar producto al carrito.\n2. Mostrar la categoria del producto.\n3. Mostrar los datos del producto dentro de su carrito.\n4. Mostrar los datos de todos los productos dentro del carrito.\n6. Mostrar el producto y la categoria del el inventario.\n");
-				try {
-					int option = Integer.parseInt(scanner.nextLine());
-					switch (option){
-					
-					
-					
-					}
-						
-						
-				}
-				catch(Exception e) {
-					System.out.print("No selecciono una opcion valida, vuelva a intentar.\n");
-				}
+			System.out.print(2);
+			shop = addInventory(shop);
+			System.out.print(3);
 			
-			}
-		
-			
+			shop.getProductList();
+//			while (true) {
+//				System.out.print("Seleccione entre las siguientes opciones:\n1. Agregar producto al carrito.\n2. Mostrar la categoria del producto.\n3. Mostrar los datos del producto dentro de su carrito.\n4. Mostrar los datos de todos los productos dentro del carrito.\n6. Mostrar el producto y la categoria del el inventario.\n");
+//				try {
+//					int option = Integer.parseInt(scanner.nextLine());
+//					switch (option){
+//					
+//					
+//					
+//					}
+//						
+//						
+//				}
+//				catch(Exception e) {
+//					System.out.print("No selecciono una opcion valida, vuelva a intentar.\n");
+//				}
+//			
+//			}
+//		
+//			
 			
 		}catch (Exception e) {
 			System.out.print("The selected option is not valid");
 		}
 		
-		
+	scanner.close();	
 		
 
 	}
