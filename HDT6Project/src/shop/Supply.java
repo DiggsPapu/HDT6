@@ -22,10 +22,33 @@ public class Supply {
 		getInventory().ShowMapping();
 	}
 	public String getCategory(String product) {
-		return getInventory().SearchKey(product);
+		return getInventory().getKeyFromValue(product);
 	}
 	
 	public void addNewProduct(String key, String product) {
 		getInventory().Insert(key, product);
+	}
+	
+	public static void main(String[] args) {
+		Supply supply = new Supply(1);
+
+		supply.addNewProduct("Food", "apples");
+		supply.addNewProduct("Food", "Oranges");
+		supply.addNewProduct("Food", "Almonds");
+		supply.addNewProduct("Food", "Pies");
+		supply.addNewProduct("Clothes", "Jeans");
+		supply.addNewProduct("Clothes", "Shoes");
+		supply.addNewProduct("Clothes", "Crocs");
+
+		supply.getCategory("apples");
+//		cart.removeFromCart("Food", "apples");
+//		cart.getProductList();
+//		cart.getProductStats("Crocs");
+//		cart.getProductStats("Almonds");
+//		cart.getProductList();
+//		cart.getProductStats("apples");
+		
+		
+		
 	}
 }

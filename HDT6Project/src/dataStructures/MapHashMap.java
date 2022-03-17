@@ -121,6 +121,7 @@ public class MapHashMap<T> implements IMap<T>  {
 		Object[] keySet = getDataStructure().keySet().toArray();
 		for (int k = 0; k < keySet.length; k++) {
 			if ((String) keySet[k] == (String) key) {
+				System.out.print("Categoria: " + (String) keySet[k]);
 				return (String) keySet[k];
 			}
 		}
@@ -230,6 +231,7 @@ public class MapHashMap<T> implements IMap<T>  {
 		EjemploHash.Insert("Carro", "Toyota");
 		System.out.print("\n");
 		EjemploHash.ShowMapping();
+		EjemploHash.getKeyFromValue("Toyota");
 	}
 	
 }
