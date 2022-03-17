@@ -91,10 +91,23 @@ public class Shop {
 		getCart().getProductList();
 	}
 	/**
+	 * To print the list of what will be bought sorted by category
+	 */
+	public void getCartListSorted() {
+		getCart().getProductSortedList();
+	}
+	
+	/**
 	 * To print the list of available items
 	 */
 	public void getProductList() {
 		getSupply().getProductSupply();
+	}
+	/**
+	 * To print the list of items sorted by category
+	 */
+	public void getProductListSorted() {
+		getSupply().getInventorySorted();
 	}
 	
 	public static void main(String[] args) {

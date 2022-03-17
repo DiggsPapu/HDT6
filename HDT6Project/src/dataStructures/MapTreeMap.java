@@ -57,12 +57,12 @@ public class MapTreeMap<T> implements IMap<T> {
 		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
 			//If we found the value in the array we return the value and print found
 			if (getDataStructure().get(key).get(k).equals(value)) {
-				System.out.print("Found "+getDataStructure().get(key).get(k)+"\n") ;
+//				System.out.print("Found "+getDataStructure().get(key).get(k)+"\n") ;
 				return getDataStructure().get(key).get(k);
 			}
 		}
 		//If the value is not found we return null and print that was not found
-		System.out.print(value+" was not found\n");
+//		System.out.print(value+" was not found\n");
 		return null;
 		
 	}
@@ -99,12 +99,12 @@ public class MapTreeMap<T> implements IMap<T> {
 			//If we found the value in the array we remove the value, return the value
 			//and print that it was removed
 			if (getDataStructure().get(key).get(k).equals(value)) {
-				System.out.print(getDataStructure().get(key).get(k)+" was removed\n") ;
+//				System.out.print(getDataStructure().get(key).get(k)+" was removed\n") ;
 				return getDataStructure().get(key).remove(k);
 			}
 		}
 		//If the value is not found we return null and print that it could not be removed
-		System.out.print(value+" could not be removed\n");
+//		System.out.print(value+" could not be removed\n");
 		return null;
 		
 	}
@@ -135,6 +135,38 @@ public class MapTreeMap<T> implements IMap<T> {
 		}
 		//Garbage collector throws out the temp array
 	}
+	
+	
+	/**
+	 * This mapping is to show the Sorted way, in the category.
+	 * 
+	 */
+	public void ShowMapping2() {
+		//Get a set with keys
+		Object[] keySet = getDataStructure().keySet().toArray();
+		//Creates a temporal array to storage the keys
+		ArrayList<String> array = new ArrayList<String>();
+		for (int l = 0; l < keySet.length ; l++) {
+			array.add((String) keySet[l]);
+		}
+		//Sorts the keys in alphabetical
+		Collections.sort(array);
+		//To move in the array
+		for (int k = 0; k < array.size(); k++) {
+			///Creates a temp Array to compare already printed objects
+			ArrayList<String> tempArray = new ArrayList<String>();
+			for (int l = 0; l < getDataStructure().get(array.get(k)).size() ; l ++) {
+				//In case the object have not been printed we print it
+				if (!tempArray.contains(getDataStructure().get(array.get(k)).get(l))){
+					System.out.print("Category: " + array.get(k) + " || Product: " + getDataStructure().get(array.get(k)).get(l) + " || Number: " + Collections.frequency(getDataStructure().get(array.get(k)),getDataStructure().get(array.get(k)).get(l)) + "\n");
+				}
+				//We add the object
+				tempArray.add(getDataStructure().get(array.get(k)).get(l));
+				
+			}
+		}
+		//Garbage collector throws out the temp array and the temporal array
+	}
 	/**
 	 * This method searches the key based on a value given
 	 * @param value, the value used to find the key
@@ -147,7 +179,7 @@ public class MapTreeMap<T> implements IMap<T> {
 		for (int k = 0; k < keySet.length; k++) {
 			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
 				if (getDataStructure().get(keySet[k]).get(l).equals(value)) {
-					System.out.print("The category of " + value + " is "+ keySet[k]+"\n");
+//					System.out.print("The category of " + value + " is "+ keySet[k]+"\n");
 					return (String) keySet[k];
 					
 				}
@@ -187,12 +219,12 @@ public class MapTreeMap<T> implements IMap<T> {
 	public String SearchKey(T key) {
 		// TODO Auto-generated method stub
 		Object[] keySet = getDataStructure().keySet().toArray();
-		System.out.print(key.toString()+"______\n");
+//		System.out.print(key.toString()+"______\n");
 		for (int k = 0; k < keySet.length; k++) {
-			System.out.print(keySet[k]+"\n");
+//			System.out.print(keySet[k]+"\n");
 			
 			if (key.equals(keySet[k])) {
-				System.out.print("Categoria: " + (String) keySet[k]);
+//				System.out.print("Categoria: " + (String) keySet[k]+"\n");
 				return (String) keySet[k];
 			}
 		}

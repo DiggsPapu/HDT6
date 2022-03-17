@@ -35,7 +35,7 @@ public class Cart {
 	 */
 	public void addToCart(String key, String value) {
 		getCart().Insert(key, value);
-		System.out.print(value+" was added to the cart\n");
+//		System.out.print(value+" was added to the cart\n");
 	}
 	/**
 	 * This method returns the removed product, aso prints which was removed
@@ -44,7 +44,7 @@ public class Cart {
 	 * @return String with the removed product
 	 */
 	public String removeFromCart(String key, String product) {
-		System.out.print(product+ " was removed from the cart\n");
+//		System.out.print(product+ " was removed from the cart\n");
 		return getCart().Removin(key, product);
 	}
 	/**
@@ -82,9 +82,12 @@ public class Cart {
 	public void getProductList() {
 		getCart().ShowMapping();
 	}
+	public void getProductSortedList() {
+		getCart().ShowMapping2();
+	}
 	
 	public static void main(String[] args) {
-		Cart cart = new Cart(1);
+		Cart cart = new Cart(3);
 
 		cart.addToCart("Food", "apples");
 		cart.addToCart("Food", "Oranges");
@@ -95,6 +98,9 @@ public class Cart {
 		cart.addToCart("Clothes", "Jeans");
 		cart.addToCart("Clothes", "Shoes");
 		cart.addToCart("Clothes", "Crocs");
+		cart.addToCart("Yo", "Jeans");
+		cart.addToCart("Ddew", "Shoes");
+		cart.addToCart("iow", "Crocs");
 
 		cart.getProductStats("apples");
 		cart.removeFromCart("Food", "apples");
@@ -104,7 +110,7 @@ public class Cart {
 		cart.getProductList();
 		cart.getProductStats("apples");
 		
-		
+		cart.getProductSortedList();
 		
 	}
 		

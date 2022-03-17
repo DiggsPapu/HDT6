@@ -36,6 +36,10 @@ public class Supply {
 		getInventory().Insert(key, product);
 	}
 	
+	public void getInventorySorted() {
+		getInventory().ShowMapping2();
+	}
+	
 	public static void main(String[] args) {
 		Supply supply = new Supply(1);
 

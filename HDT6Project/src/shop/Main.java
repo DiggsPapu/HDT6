@@ -49,9 +49,9 @@ public class Main {
 			shop = addInventory(shop);
 			
 			shop.getProductList();
-			
-			while (true) {
-				System.out.print("Seleccione entre las siguientes opciones:\n1. Agregar producto al carrito.\n2. Mostrar la categoria del producto.\n3. Mostrar los datos del producto dentro de su carrito.\n4. Mostrar los datos de todos los productos dentro del carrito.\n6. Mostrar el producto y la categoria del el inventario.\n7. Salir\n");
+			boolean keepUsing=true;
+			while (keepUsing) {
+				System.out.print("Seleccione entre las siguientes opciones:\n1. Agregar producto al carrito.\n2. Mostrar la categoria del producto.\n3. Mostrar los datos del producto dentro de su carrito.\n4. Mostrar los datos de todos los productos dentro del carrito ordenado por categoria alfabeticamente.\n5. Mostrar los datos de todos los productos dentro del inventario ordenado por categoria alfabeticamente.\n6. Mostrar el producto y la categoria del inventario.\n7. Salir\n");
 				try {
 					int option = Integer.parseInt(scanner.nextLine());
 					switch (option){
@@ -84,6 +84,42 @@ public class Main {
 							System.out.print("\nNo ingreso una categoria valida, intentelo de nuevo.\n");
 						}
 //						shop.getCart().addToCart(dataStructureType, dataStructureType);
+					break;
+					}
+					
+					case 2:{
+						System.out.print("\nPor favor, ingrese el producto del que desee chequear la categoria: ");
+						String producto = scanner.nextLine();
+						if (shop.getCategoryFromValue(producto).equals(null)) {
+							System.out.print("\nNo ingreso un producto valido.\n");
+						}
+						else {
+							System.out.print("La categoria del producto " + producto + " es: " + shop.getCategoryFromValue(producto) + "\n");
+						}
+						break;
+					}
+					
+					case 3:{
+						shop.getCartList();
+						break;
+					}
+					case 4:{
+						shop.getCartListSorted();
+						break;
+					}
+					case 5:{
+						shop.getProductList();
+						break;
+					}
+					case 6:{
+						shop.getProductListSorted();
+						break;
+					}
+					
+					case 7:{
+						System.out.print("\nGracias por utilizar nuestro programa.\n Feliz dia!");
+						keepUsing=false;
+						break;
 					}
 					
 					
