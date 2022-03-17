@@ -11,19 +11,17 @@ public class Main {
 			
 			
 			BufferedReader read= new BufferedReader(new FileReader("C:\\Users\\Windows 10\\Documents\\UVG\\CODING\\Algoritmos y estructuras de datos\\HDT\\HDT6\\src\\ListadoProducto.txt"));
-			System.out.print(2.1+"\n");
 			String line;
 			
 			while( (line = read.readLine() ) != null) {
-			    System.out.printf(line+"\n");
-			    
-			    String [] temp = line.split("\\|");
-			    System.out.println(temp[0].trim()+" "+temp[1].trim()+"\n");
+			   
+				String [] temp = line.split("\\|");
+//			    System.out.println(temp[0].trim()+" "+temp[1].trim()+"\n");
 			    shop.addNewProduct(temp[0].trim(),temp[1].trim());
 			    
 			}
 
-		    shop.getProductList();
+		    System.out.print("Inventory loaded\n");
 			
 			return shop;
 			}
@@ -45,32 +43,48 @@ public class Main {
 		String dataStructureType = scanner.nextLine();
 		try {
 			int NumStructure = Integer.parseInt(dataStructureType);
-			System.out.print(1);
+			
 			Shop shop = new Shop(NumStructure);
-			System.out.print(2);
+			
 			shop = addInventory(shop);
-			System.out.print(3);
 			
 			shop.getProductList();
-//			while (true) {
-//				System.out.print("Seleccione entre las siguientes opciones:\n1. Agregar producto al carrito.\n2. Mostrar la categoria del producto.\n3. Mostrar los datos del producto dentro de su carrito.\n4. Mostrar los datos de todos los productos dentro del carrito.\n6. Mostrar el producto y la categoria del el inventario.\n");
-//				try {
-//					int option = Integer.parseInt(scanner.nextLine());
-//					switch (option){
-//					
-//					
-//					
-//					}
-//						
-//						
-//				}
-//				catch(Exception e) {
-//					System.out.print("No selecciono una opcion valida, vuelva a intentar.\n");
-//				}
-//			
-//			}
-//		
-//			
+			
+			while (true) {
+				System.out.print("Seleccione entre las siguientes opciones:\n1. Agregar producto al carrito.\n2. Mostrar la categoria del producto.\n3. Mostrar los datos del producto dentro de su carrito.\n4. Mostrar los datos de todos los productos dentro del carrito.\n6. Mostrar el producto y la categoria del el inventario.\n7. Salir\n");
+				try {
+					int option = Integer.parseInt(scanner.nextLine());
+					switch (option){
+					
+					case 1:{
+						System.out.print("Ingrese la categoria: ");
+						String category = scanner.nextLine();
+						shop.getSupply().getCategory(category);
+//						System.out.print(shop.getSupply().getCategory("Carnes"));
+						System.out.print("XD");
+						if (shop.getSupply().getCategory(category)!=null) {
+							System.out.print("\nIngrese el producto a aniadir: ");
+							String product = scanner.nextLine();
+							shop.addNewProduct(category, product);
+						}
+						else {
+							System.out.print("\nNo ingreso una categoria valida, intentelo de nuevo.\n");
+						}
+//						shop.getCart().addToCart(dataStructureType, dataStructureType);
+					}
+					
+					
+					}
+						
+						
+				}
+				catch(Exception e) {
+					System.out.print("No selecciono una opcion valida, vuelva a intentar.\n");
+				}
+			
+			}
+		
+			
 			
 		}catch (Exception e) {
 			System.out.print("The selected option is not valid");

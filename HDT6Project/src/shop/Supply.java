@@ -21,9 +21,16 @@ public class Supply {
 	public void getProductSupply(){
 		getInventory().ShowMapping();
 	}
-	public String getCategory(String product) {
+	
+	public String getCategory(String category) {
+		return getInventory().SearchKey(category);
+	}
+	
+	public String getCategoryFromValue(String product) {
 		return getInventory().getKeyFromValue(product);
 	}
+	
+	
 	
 	public void addNewProduct(String key, String product) {
 		getInventory().Insert(key, product);
@@ -40,7 +47,7 @@ public class Supply {
 		supply.addNewProduct("Clothes", "Shoes");
 		supply.addNewProduct("Clothes", "Crocs");
 
-		supply.getCategory("apples");
+		supply.getCategoryFromValue("apples");
 //		cart.removeFromCart("Food", "apples");
 //		cart.getProductList();
 //		cart.getProductStats("Crocs");

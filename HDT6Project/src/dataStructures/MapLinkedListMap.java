@@ -55,7 +55,7 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		// a for to move between the array objects
 		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
 			//If we found the value in the array we return the value and print found
-			if (getDataStructure().get(key).get(k)==value) {
+			if (getDataStructure().get(key).get(k).equals(value)) {
 				System.out.print("Found "+getDataStructure().get(key).get(k)+"\n") ;
 				return getDataStructure().get(key).get(k);
 			}
@@ -64,6 +64,25 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		System.out.print(value+" was not found\n");
 		return null;
 		
+	}
+	/**
+	 * It searches across all the arrays inside the hash to find the value
+	 * @param value, to be found
+	 * @return String, with the value
+	 */
+	@Override
+	public String SearchValue(String value) {
+		
+		Object[] keySet = getDataStructure().keySet().toArray();
+		for (int k = 0; k < keySet.length; k++) {
+			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
+				if (getDataStructure().get(keySet[k]).get(l).equals(value)) {
+					return getDataStructure().get(keySet[k]).get(l);
+				}
+				
+			}
+		}
+		return null;
 	}
 	/**
 	 * Removes the value from the array inside the hash map
@@ -78,7 +97,7 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		for (int k = 0; k<getDataStructure().get(key).size(); k++) {
 			//If we found the value in the array we remove the value, return the value
 			//and print that it was removed
-			if (getDataStructure().get(key).get(k)==value) {
+			if (getDataStructure().get(key).get(k).equals(value)) {
 				System.out.print(getDataStructure().get(key).get(k)+" was removed\n") ;
 				return getDataStructure().get(key).remove(k);
 			}
@@ -88,41 +107,8 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		return null;
 		
 	}
-	/**
-	 * This method search the key if exists, and if so it returns the key in a string format
-	 * @param key, the key that want to be founded
-	 * @return String, string with the key that wanted to be found
-	 */
-	@Override
-	public String SearchKey(T key) {
-		// TODO Auto-generated method stub
-		Object[] keySet = getDataStructure().keySet().toArray();
-		for (int k = 0; k < keySet.length; k++) {
-			if ((String) keySet[k] == (String) key) {
-				return (String) keySet[k];
-			}
-		}
-		return null;
-	}
-	/**
-	 * It searches across all the arrays inside the hash to find the value
-	 * @param value, to be found
-	 * @return String, with the value
-	 */
-	@Override
-	public String SearchValue(String value) {
-		
-		Object[] keySet = getDataStructure().keySet().toArray();
-		for (int k = 0; k < keySet.length; k++) {
-			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
-				if (getDataStructure().get(keySet[k]).get(l)==value) {
-					return getDataStructure().get(keySet[k]).get(l);
-				}
-				
-			}
-		}
-		return null;
-	}
+	
+	
 	/**
 	 * It is to print the entry with its value, in a key value pair
 	 * @param nothing
@@ -139,7 +125,7 @@ public class MapLinkedListMap<T> implements IMap<T> {
 			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
 				//In case the object have not been printed we print it
 				if (!tempArray.contains(getDataStructure().get(keySet[k]).get(l))){
-					System.out.print("Category: " + keySet[k] + "|| Product: " + getDataStructure().get(keySet[k]).get(l) + " || Number: " + Collections.frequency(getDataStructure().get(keySet[k]),getDataStructure().get(keySet[k]).get(l)) + "\n");
+					System.out.print("Category: " + keySet[k] + " || Product: " + getDataStructure().get(keySet[k]).get(l) + " || Number: " + Collections.frequency(getDataStructure().get(keySet[k]),getDataStructure().get(keySet[k]).get(l)) + "\n");
 				}
 				//We add the object
 				tempArray.add(getDataStructure().get(keySet[k]).get(l));
@@ -159,7 +145,7 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		Object[] keySet = getDataStructure().keySet().toArray();
 		for (int k = 0; k < keySet.length; k++) {
 			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
-				if (getDataStructure().get(keySet[k]).get(l)==value) {
+				if (getDataStructure().get(keySet[k]).get(l).equals(value)) {
 					System.out.print("The category of " + value + " is "+ keySet[k]+"\n");
 					return (String) keySet[k];
 					
@@ -182,12 +168,33 @@ public class MapLinkedListMap<T> implements IMap<T> {
 		int counter = 0;
 		for (int k = 0; k < keySet.length; k++) {
 			for (int l = 0; l < getDataStructure().get(keySet[k]).size() ; l ++) {
-				if (getDataStructure().get(keySet[k]).get(l)==value) {
+				if (getDataStructure().get(keySet[k]).get(l).equals(value)) {
 					counter++;
 				}
 				
 			}
 		}
 		return counter;
+	}
+	
+	/**
+	 * This method search the key if exists, and if so it returns the key in a string format
+	 * @param key, the key that want to be founded
+	 * @return String, string with the key that wanted to be found
+	 */
+	@Override
+	public String SearchKey(T key) {
+		// TODO Auto-generated method stub
+		Object[] keySet = getDataStructure().keySet().toArray();
+		System.out.print(key.toString()+"______\n");
+		for (int k = 0; k < keySet.length; k++) {
+			System.out.print(keySet[k]+"\n");
+			
+			if (key.equals(keySet[k])) {
+				System.out.print("Categoria: " + (String) keySet[k]);
+				return (String) keySet[k];
+			}
+		}
+		return null;
 	}
 }

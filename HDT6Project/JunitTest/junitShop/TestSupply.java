@@ -40,8 +40,8 @@ class TestSupply {
 		supply.addNewProduct("Comida", "Ajo");
 		supply.addNewProduct("Comida", "Cebolla");
 		
-		assertEquals(supply.getCategory("Agua"), "Comida");
-		System.out.print(supply.getCategory("Agua"));
+		assertEquals(supply.getCategoryFromValue("Agua"), "Comida");
+		System.out.print(supply.getCategoryFromValue("Agua"));
 	
 	}
 
@@ -59,7 +59,8 @@ class TestSupply {
 		supply.addNewProduct("Comida", "Ajo");
 		supply.addNewProduct("Comida", "Cebolla");
 		
-		assertNotEquals(supply.getCategory("Agua"), null);
+		assertEquals(supply.getCategory("Agua"), null);
+		assertEquals(supply.getCategory("Comida"), supply.getCategoryFromValue("Champiniones"));
 		
 		
 	}

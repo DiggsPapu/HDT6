@@ -73,8 +73,8 @@ public class Shop {
 	 * @param product
 	 * @return String with the category type
 	 */
-	public String getCategory(String product) {
-		return getSupply().getCategory(product);
+	public String getCategoryFromValue(String product) {
+		return getSupply().getCategoryFromValue(product);
 	}
 	
 	/**
