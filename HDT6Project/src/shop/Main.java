@@ -60,12 +60,25 @@ public class Main {
 						System.out.print("Ingrese la categoria: ");
 						String category = scanner.nextLine();
 						shop.getSupply().getCategory(category);
-//						System.out.print(shop.getSupply().getCategory("Carnes"));
-						System.out.print("XD");
+						
+
 						if (shop.getSupply().getCategory(category)!=null) {
 							System.out.print("\nIngrese el producto a aniadir: ");
 							String product = scanner.nextLine();
-							shop.addNewProduct(category, product);
+							if (shop.getCategoryFromValue(product)!=null) {
+								try {
+									System.out.print("\nIngrese la cantidad de unidades de producto a aniadir: ");
+									int amo = Integer.parseInt(scanner.nextLine());
+									shop.sendToCart(category, product, amo);
+									shop.getCartList();
+								}
+								catch(Exception e) {
+									System.out.print("\nNo ingreso un digito valido\n");
+								}
+							}
+							else {
+								System.out.print("\nNo ingreso un producto valido\n");
+							}
 						}
 						else {
 							System.out.print("\nNo ingreso una categoria valida, intentelo de nuevo.\n");
