@@ -5,7 +5,11 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Main {
-
+/**
+ * This is to add an inventory to the shop.
+ * @param shop
+ * @return the shop with the inventory implemented
+ */
 	private static Shop addInventory(Shop shop) {
 		try {
 			
@@ -48,7 +52,7 @@ public class Main {
 			
 			shop = addInventory(shop);
 			
-			shop.getProductList();
+//			shop.getProductList();
 			boolean keepUsing=true;
 			while (keepUsing) {
 				System.out.print("Seleccione entre las siguientes opciones:\n1. Agregar producto al carrito.\n2. Mostrar la categoria del producto.\n3. Mostrar los datos del producto dentro de su carrito.\n4. Mostrar los datos de todos los productos dentro del carrito ordenado por categoria alfabeticamente.\n5. Mostrar los datos de todos los productos dentro del inventario ordenado por categoria alfabeticamente.\n6. Mostrar el producto y la categoria del inventario.\n7. Salir\n");
