@@ -82,6 +82,9 @@ public class Cart {
 	public void getProductList() {
 		getCart().ShowMapping();
 	}
+	/**
+	 * Prints the sorted list of products
+	 */
 	public void getProductSortedList() {
 		getCart().ShowMapping2();
 	}

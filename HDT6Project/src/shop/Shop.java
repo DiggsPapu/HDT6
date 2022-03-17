@@ -110,8 +110,8 @@ public class Shop {
 		getSupply().getInventorySorted();
 	}
 	
-	public static void main(String[] args) {
-		Shop shop = new Shop(1);
-		System.out.print(shop.getCart().getCart().toString());
-	}
+//	public static void main(String[] args) {
+//		Shop shop = new Shop(1);
+//		System.out.print(shop.getCart().getCart().toString());
+//	}
 }

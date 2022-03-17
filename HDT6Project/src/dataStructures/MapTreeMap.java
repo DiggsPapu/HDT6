@@ -6,16 +6,24 @@ import java.util.TreeMap;
 
 public class MapTreeMap<T> implements IMap<T> {
 	private TreeMap<String, ArrayList<String>> dataStructure;
-	
+/**
+ * It is a constructor 4 a tree Map	
+ */
 	public MapTreeMap() {
 		dataStructure = new TreeMap<String, ArrayList<String>>();
 	}
-	
+/**
+ * It returns the dataStructure	
+ * @return
+ */
 	public TreeMap<String, ArrayList<String>> getDataStructure() {
 		return dataStructure;
 	}
 
-
+/**
+ * It sets the dataStructure
+ * @param dataStructure
+ */
 	public void setDataStructure(TreeMap<String, ArrayList<String>> dataStructure) {
 		this.dataStructure = dataStructure;
 	}

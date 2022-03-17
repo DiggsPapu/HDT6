@@ -7,15 +7,23 @@ import java.util.LinkedHashMap;
 public class MapLinkedListMap<T> implements IMap<T> {
 	
 	private LinkedHashMap<String, ArrayList<String>> dataStructure;
-	
+	/**
+	 * It is a getter 4 the dataStructure
+	 * @return
+	 */
 	public LinkedHashMap<String, ArrayList<String>> getDataStructure() {
 		return dataStructure;
 	}
-
+/**
+ * It is a setter 4 the datastructure
+ * @param dataStructure
+ */
 	public void setDataStructure(LinkedHashMap<String, ArrayList<String>> dataStructure) {
 		this.dataStructure = dataStructure;
 	}
-
+/**
+ * It is a Constructor 4 a listMap
+ */
 	public MapLinkedListMap() {
 		dataStructure = new LinkedHashMap<String, ArrayList<String>>();
 	}

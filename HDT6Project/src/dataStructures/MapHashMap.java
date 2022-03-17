@@ -235,55 +235,55 @@ public class MapHashMap<T> implements IMap<T>  {
 		return null;
 	}
 	
-	public static void main(String[] args) {
-		MapHashMap<String> EjemploHash =  new MapHashMap<String>();
-		EjemploHash.Insert("Carro", "Lambo");
-		EjemploHash.Insert("Carro", "Toyota");
-		EjemploHash.Insert("Comida", "Insectos");
-
-		EjemploHash.ShowMapping();
-		EjemploHash.getKeyFromValue("Insectos");
-		EjemploHash.SearchValue("Carro", "Lalaland");
-		for (int l = 0; l<EjemploHash.getDataStructure().get("Carro").size(); l++) {
-			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(l)+"\n");
-		}
-		EjemploHash.SearchValue("Carro", "Toyota");
-		for (int n = 0; n<EjemploHash.getDataStructure().get("Carro").size(); n++) {
-			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(n)+"\n");
-		}
-		
-		EjemploHash.Removin("Carro", "Lalaland");
-		for (int j = 0; j<EjemploHash.getDataStructure().get("Carro").size(); j++) {
-			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(j)+"\n");
-		}
-		EjemploHash.Removin("Carro", "Toyota");
-		for (int j = 0; j<EjemploHash.getDataStructure().get("Carro").size(); j++) {
-			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(j)+"\n");
-		}
-		EjemploHash.Insert("Carro", "Lambo");
-		EjemploHash.Insert("Carro", "Lambo");
-		EjemploHash.Insert("Carro", "Lambo");
-		System.out.print(EjemploHash.SearchValue("Insectos")+"\n");;
-		System.out.print(EjemploHash.countValues("Lambo")+"\n");
-		EjemploHash.ShowMapping();
-
-		EjemploHash.Insert("Carro", "Mitsubishi");
-		EjemploHash.Insert("Carro", "Mitsubishi");
-		EjemploHash.Insert("Carro", "Toyota");
-		System.out.print("\n");
-		EjemploHash.ShowMapping();
-		EjemploHash.getKeyFromValue("Toyota");
-		System.out.print(EjemploHash.SearchKey("Carro"));
-		Scanner scanner = new Scanner(System.in);
-		String coso =scanner.nextLine();
-		System.out.print(coso);
-		System.out.print(EjemploHash.SearchKey(coso));
-		String coso1 =scanner.nextLine();
-		String coso2 =scanner.nextLine();
-		EjemploHash.Removin(coso1, coso2);
-		EjemploHash.ShowMapping();
-		EjemploHash.SearchKey(coso1);
-		EjemploHash.ShowMapping2();
-	}
+//	public static void main(String[] args) {
+//		MapHashMap<String> EjemploHash =  new MapHashMap<String>();
+//		EjemploHash.Insert("Carro", "Lambo");
+//		EjemploHash.Insert("Carro", "Toyota");
+//		EjemploHash.Insert("Comida", "Insectos");
+//
+//		EjemploHash.ShowMapping();
+//		EjemploHash.getKeyFromValue("Insectos");
+//		EjemploHash.SearchValue("Carro", "Lalaland");
+//		for (int l = 0; l<EjemploHash.getDataStructure().get("Carro").size(); l++) {
+//			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(l)+"\n");
+//		}
+//		EjemploHash.SearchValue("Carro", "Toyota");
+//		for (int n = 0; n<EjemploHash.getDataStructure().get("Carro").size(); n++) {
+//			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(n)+"\n");
+//		}
+//		
+//		EjemploHash.Removin("Carro", "Lalaland");
+//		for (int j = 0; j<EjemploHash.getDataStructure().get("Carro").size(); j++) {
+//			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(j)+"\n");
+//		}
+//		EjemploHash.Removin("Carro", "Toyota");
+//		for (int j = 0; j<EjemploHash.getDataStructure().get("Carro").size(); j++) {
+//			System.out.print("Object: "+EjemploHash.getDataStructure().get("Carro").get(j)+"\n");
+//		}
+//		EjemploHash.Insert("Carro", "Lambo");
+//		EjemploHash.Insert("Carro", "Lambo");
+//		EjemploHash.Insert("Carro", "Lambo");
+//		System.out.print(EjemploHash.SearchValue("Insectos")+"\n");;
+//		System.out.print(EjemploHash.countValues("Lambo")+"\n");
+//		EjemploHash.ShowMapping();
+//
+//		EjemploHash.Insert("Carro", "Mitsubishi");
+//		EjemploHash.Insert("Carro", "Mitsubishi");
+//		EjemploHash.Insert("Carro", "Toyota");
+//		System.out.print("\n");
+//		EjemploHash.ShowMapping();
+//		EjemploHash.getKeyFromValue("Toyota");
+//		System.out.print(EjemploHash.SearchKey("Carro"));
+//		Scanner scanner = new Scanner(System.in);
+//		String coso =scanner.nextLine();
+//		System.out.print(coso);
+//		System.out.print(EjemploHash.SearchKey(coso));
+//		String coso1 =scanner.nextLine();
+//		String coso2 =scanner.nextLine();
+//		EjemploHash.Removin(coso1, coso2);
+//		EjemploHash.ShowMapping();
+//		EjemploHash.SearchKey(coso1);
+//		EjemploHash.ShowMapping2();
+//	}
 	
 }
